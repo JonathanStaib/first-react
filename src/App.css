@@ -1,3 +1,19 @@
 body {
   background-color: darkgray;
 }
+main{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.card img{
+  height: 50%;
+  overflow: auto;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.card {
+  margin: 5px;
+}

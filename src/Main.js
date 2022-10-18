@@ -1,16 +1,31 @@
 import React from 'react';
-import Beast from './Horned-Beasts.js';
-// import Kaheera from './Kaheera.wbp';
-// import PrimTim from './PrimeTime.jpg';
+import Beast from './Beast.js';
+// import Kaheera from './assets/Kaheera.webp';
+// import PrimTim from './assets/PrimeTime.jpg';
+import data from './data.json';
 
 class Main extends React.Component{
   render(){
+    let beasts = [];
+
+    data.forEach((horn, index)=>{
+      beasts.push(
+        <Beast
+        name={horn.name}
+        picture={horn.image_url} 
+        info={horn.description}
+        key={index}
+        />
+      )
+    });
+
     return(
       <>
       <main id='main-component'>
-        <Beast name="PrimeTime" picture="PrimeTime.jpg" info= "Primevil Titan from Magic The Gathering, played in amulet Titan and Titan Shift  modern decks."/>
-        <Beast name="Kaheera" src = "Kaheera.wbpg" info= "Kaheera companion card played in modern decks."/>
-        <p>Howdy!</p>
+        {beasts}
+        {/* <Beast name="PrimeTime" picture={PrimTim} info= "Primevil Titan from Magic The Gathering, played in amulet."/>
+        <Beast name="Kaheera" picture={Kaheera} info= "Kaheera companion card played in modern decks."/>
+        <p>Howdy!</p> */}
       </main>
       </>
     )
