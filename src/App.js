@@ -50,7 +50,6 @@ class App extends React.Component{
   handleSelect = (event) => {
     let selected = +event.target.value;
 
-    console.log(typeof selected);
 
     if(selected === 1){
       let newData = Data.filter(hornedBeasts => hornedBeasts.horns === 1) 
