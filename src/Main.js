@@ -8,6 +8,7 @@ class Main extends React.Component{
         name={horn.name}
         image_url={horn.image_url} 
         info={horn.description}
+        horns={horn.horns}
         key={index}
         addHearts={this.props.addHearts}
         handleOpenModal={this.props.handleOpenModal}
