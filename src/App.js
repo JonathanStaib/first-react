@@ -17,7 +17,6 @@ class App extends React.Component{
       heart: '',
       showModal: false,
       selectedBeast: '',
-      sortedData: Data,
     }
     }
 
@@ -40,76 +39,36 @@ class App extends React.Component{
     })
   }
 
-  handleInput = (event) => {
-    let userName = event.target.value;
-    this.setState({
-      name: userName
-    });
-  }
-
-  handleSelect = (event) => {
-    let selected = +event.target.value;
-
-    console.log(typeof selected);
-
-    if(selected === 1){
-      let newData = Data.filter(hornedBeasts => hornedBeasts.horns === 1) 
-      this.setState({
-        sortedData: newData
-      })
-    } else if(selected === 2){
-      let newData = Data.filter(hornedBeasts => hornedBeasts.horns === 2);
-      this.setState({
-        sortedData: newData
-      })
-    } else if(selected === 3){
-      let newData = Data.filter(hornedBeasts => hornedBeasts.horns === 3);
-      this.setState({
-        sortedData: newData
-      })
-    }
-    else if(selected === 100){
-      let newData = Data.filter(hornedBeasts => hornedBeasts.horns === 100);
-      this.setState({
-        sortedData: newData
-      })
-    }
-    else {
-      this.setState({
-        sortedData: Data
-      });
-    }
-   
-  }
-
   render(){
     return(
-      <> 
+      <>
       <Header 
        heart = {this.state.heart}
       />
       <Main
         addHearts={this.addHearts}
         handleOpenModal={this.handleOpenModal}
-        data={this.state.sortedData}
+        data={Data}
         />
         <main>
         <article>
         <Form onSubmit={this.handleSubmit}>
-        <Form.Label>Your Name: 
+        <Form.Label>Name: 
           <Form.Control type="text" name="name" onInput={this.handleInput}/>
         </Form.Label>
 
+        <Form.Label htmlFor="age">Age:</Form.Label>
+        <Form.Control id="age" type="number" />
+
         <Form.Group>
-          <legend>Amount of Horns</legend>
-          <Form.Select name="selected" id="" type="number" onChange={this.handleSelect}>
+          <legend>Selected Numbers</legend>
+          <Form.Select name="selected" id="" onChange={this.handleSelect}>
             <option value="all">All</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="100">100</option>
+            <option value="even">Even</option>
+            <option value="odd">Odd</option>
           </Form.Select>
         </Form.Group>
+        <Button type="submit">Submit</Button>
       </Form>
       </article>
       </main>
