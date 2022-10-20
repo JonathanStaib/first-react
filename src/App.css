@@ -17,3 +17,11 @@ main{
 .card {
   margin: 5px;
 }
+
+div img{
+  height: 50%;
+  overflow: auto;
+  padding: 2px;
+  width: 100%;
+  margin: auto;
+}

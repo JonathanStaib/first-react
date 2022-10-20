@@ -23,19 +23,20 @@ class Beast extends React.Component {
     });
   }
 
-  // needsHelp = () =>{
-  //   this.setState({
-  //     helpMe: true,
-  //   });
-  // }
+  handleHelpClick = () => {
+    this.props.handleOpenModal(this.props.horn);
+  }
 
   render(){
     return(
       <>
      <Card style={{ width: '15rem', height: '25rem' }}>
-     <Card.Img variant="top" onClick={this.handleClicks} src={this.props.picture} alt={this.props.name}/>
+     <Card.Img variant="top" 
+     onClick={this.handleHelpClick} 
+     src={this.props.image_url} 
+     alt={this.props.name}/>
      <Card.Body>
-      <Card.Title>{this.props.name}</Card.Title>
+      <Card.Title >{this.props.name}</Card.Title>
       <Card.Text>{this.state.likes} Favorites</Card.Text>
       <Card.Text> {this.state.clicks} Clicks</Card.Text>
       <Card.Text>{this.props.info}</Card.Text>
@@ -49,3 +50,5 @@ class Beast extends React.Component {
   }
 }
 export default Beast
+
+// onClick={this.props.addHearts}
