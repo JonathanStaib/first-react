@@ -17,7 +17,6 @@ class App extends React.Component{
       heart: '',
       showModal: false,
       selectedBeast: '',
-      sortedData: Data,
     }
     }
 
@@ -39,6 +38,7 @@ class App extends React.Component{
       selectedBeast: beasts,
     })
   }
+
 
   handleInput = (event) => {
     let userName = event.target.value;
@@ -80,8 +80,7 @@ class App extends React.Component{
     }
    
   }
-
-  render(){
+ render(){
     return(
       <> 
       <Header 
