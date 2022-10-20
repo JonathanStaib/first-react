@@ -6,7 +6,8 @@ import Main from './Main.js';
 import Footer from './Footer';
 import './App.css';
 import Data from './data.json';
-import ModalBeast from './ModalBeast.js'
+import ModalBeast from './ModalBeast.js';
+import { Form, Button} from 'react-bootstrap';
 
 // class component
 class App extends React.Component{
@@ -44,11 +45,34 @@ class App extends React.Component{
       <Header 
        heart = {this.state.heart}
       />
-      <Main 
+      <Main
         addHearts={this.addHearts}
         handleOpenModal={this.handleOpenModal}
         data={Data}
-      />
+        />
+        <main>
+        <article>
+        <Form onSubmit={this.handleSubmit}>
+        <Form.Label>Name: 
+          <Form.Control type="text" name="name" onInput={this.handleInput}/>
+        </Form.Label>
+
+        <Form.Label htmlFor="age">Age:</Form.Label>
+        <Form.Control id="age" type="number" />
+
+        <Form.Group>
+          <legend>Selected Numbers</legend>
+          <Form.Select name="selected" id="" onChange={this.handleSelect}>
+            <option value="all">All</option>
+            <option value="even">Even</option>
+            <option value="odd">Odd</option>
+          </Form.Select>
+        </Form.Group>
+        <Button type="submit">Submit</Button>
+      </Form>
+      </article>
+      </main>
+      
       <ModalBeast
       handleCloseModal={this.handleCloseModal}
       handleOpenModal={this.handleOpenModal}
