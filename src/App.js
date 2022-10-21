@@ -7,7 +7,7 @@ import Footer from './Footer';
 import './App.css';
 import Data from './data.json';
 import ModalBeast from './ModalBeast.js';
-import { Form, Button} from 'react-bootstrap';
+import Form from 'react-bootstrap/Form';
 
 // class component
 class App extends React.Component{
